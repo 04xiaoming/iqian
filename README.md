@@ -12,7 +12,7 @@ node-v 查看版本
 ><script src="js/libs/jquery.js"></script>
 ><script src="js/all.min.js"></script>
 
-#gulp 自动化发布工具
+# gulp 自动化发布工具
 
 gulpfile.js
 
