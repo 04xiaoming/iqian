@@ -9,11 +9,11 @@ js如果不需要压缩的文件,可以放入js/libs
 node-v 查看版本
 
 
-<link rel="stylesheet" type="text/css" href="css/css.css"/>
-<script src="js/libs/jquery.js"></script>
-<script src="js/all.min.js"></script>
+><link rel="stylesheet" type="text/css" href="css/css.css"/>
+><script src="js/libs/jquery.js"></script>
+><script src="js/all.min.js"></script>
 
-＃gulp 自动化发布工具＃
+#gulp 自动化发布工具#
 
 gulpfile.js
 
