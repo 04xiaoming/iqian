@@ -19,39 +19,33 @@ gulpfile.js
 html进行压缩
 
 ``` python
-var gulp = require('gulp');
 var htmlmin = require('gulp-htmlmin');
-gulp.task('html',function(){
+gulp.task('html', function() {
     var options = {
-        collapseWhitespace:true,
-        collapseBooleanAttributes:true,
-        removeComments:true,
-        removeEmptyAttributes:true,
-        removeScriptTypeAttributes:true,
-        removeStyleLinkTypeAttributes:true,
-        minifyJS:true,
-        minifyCSS:true
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeComments: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        minifyJS: true,
+        minifyCSS: true
     };
     gulp.src('src/*.html')
         .pipe(htmlmin(options))
-        .pipe(rev())//压缩的时候添加版本号
+        .pipe(rev()) //压缩的时候添加版本号
         .pipe(gulp.dest('dist/'));
 });
-//不对html进行压缩 仅加版本号并拷贝到dist目录
-var gulp = require('gulp');
-gulp.task('html',function(){
-    gulp.src('src/*.html')
-        .pipe(rev())//压缩的时候添加版本号
-        .pipe(gulp.dest('dist/'));
-});
+
 ```
 
 图片压缩
 ``` python
+//图片压缩
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');//png图片压缩
-gulp.task('images', function () {
+var pngquant = require('imagemin-pngquant'); //png图片压缩
+gulp.task('images', function() {
     return gulp.src('src/images/**/*.?(png|jpg|gif|JPG|GIF|PNG)')
         .pipe(changed('dist/images/')) // 忽略不变的文件
         .pipe(imagemin({
@@ -61,13 +55,11 @@ gulp.task('images', function () {
             multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
         }))
         .pipe(gulp.dest('dist/images/'));
-
 });
 ```
 
 sass自动化
 ``` python
-
 var sass = require('gulp-sass');
 gulp.task('sass', function() {
     return gulp.src('src/scss/*.scss')
@@ -76,4 +68,31 @@ gulp.task('sass', function() {
         })).on('error', sass.logError) // 错误信息
         .pipe(gulp.dest('dist/css')); //输出路径
 });
+```
+
+合并、压缩js文件
+``` python
+//压缩js
+gulp.task('jsmin', function() {
+    gulp.src('src/js/libs/*.js') //多个文件以数组形式传入
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js/libs'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
+// 合并、压缩js文件
+gulp.task('js', function() {
+    return gulp.src('src/js/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('dist/js'))
+        //.pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
 ```

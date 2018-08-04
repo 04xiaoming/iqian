@@ -83,7 +83,6 @@ gulp.task('Cssmin', function() {
 });
 
 //sass自动化
-
 var sass = require('gulp-sass');
 gulp.task('sass', function() {
     return gulp.src('src/scss/*.scss')
@@ -92,9 +91,6 @@ gulp.task('sass', function() {
         })).on('error', sass.logError) // 错误信息
         .pipe(gulp.dest('dist/css')); //输出路径
 });
-
-
-
 
 //图片压缩
 var changed = require('gulp-changed');
@@ -110,13 +106,12 @@ gulp.task('images', function() {
             multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
         }))
         .pipe(gulp.dest('dist/images/'));
-
 });
 
+//gulp开启默认任务
 gulp.task('default', ['js', 'jsmin', 'Cssmin', 'html', 'images']);
 
-gulp.task('release', ['js', 'jsmin', 'Cssmin', 'html', 'images']);
-
+// watch监听
 gulp.task('watch', ['release'], function() {
     gulp.watch('src/js/*.js', ['js']);
     gulp.watch('src/js/libs/*.js', ['jsmin']);
