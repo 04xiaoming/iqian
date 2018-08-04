@@ -9,16 +9,14 @@ js如果不需要压缩的文件,可以放入js/libs
 node-v 查看版本
 发布工具自动添加版本号,引用css、js请添加?rev=@@hash
 
-<link rel="stylesheet" type="text/css" href="css/css.css?rev=@@hash"/>
-<script src="js/libs/jquery.js?rev=@@hash"></script>
-<script src="js/all.min.js?rev=@@hash"></script>
+<link rel="stylesheet" type="text/css" href="css/css.css"/>
+<script src="js/libs/jquery.js"></script>
+<script src="js/all.min.js"></script>
 gulp 自动化发布工具
 
 gulpfile.js
 
-如果不需要对.html代码压缩 请替换
-
-##对html进行压缩
+html进行压缩
 
 ``` python
 var gulp = require('gulp');
@@ -48,7 +46,7 @@ gulp.task('html',function(){
 });
 ```
 
-##图片压缩
+图片压缩
 ``` python
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
@@ -67,7 +65,7 @@ gulp.task('images', function () {
 });
 ```
 
-##sass自动化
+sass自动化
 ``` python
 
 var sass = require('gulp-sass');
