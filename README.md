@@ -18,7 +18,7 @@ gulpfile.js
 
 如果不需要对.html代码压缩 请替换
 
-##//对html进行压缩
+##对html进行压缩
 
 ``` python
 var gulp = require('gulp');
@@ -48,7 +48,7 @@ gulp.task('html',function(){
 });
 ```
 
-##//图片压缩
+##图片压缩
 ``` python
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
@@ -65,4 +65,17 @@ gulp.task('images', function () {
         .pipe(gulp.dest('dist/images/'));
 
 });
-``` # iqian
+```
+
+##sass自动化
+``` python
+
+var sass = require('gulp-sass');
+gulp.task('sass', function() {
+    return gulp.src('src/scss/*.scss')
+        .pipe(sass({
+            outputStyle: 'compressed'
+        })).on('error', sass.logError) // 错误信息
+        .pipe(gulp.dest('dist/css')); //输出路径
+});
+```
