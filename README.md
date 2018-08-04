@@ -1,4 +1,4 @@
-iqian前端开发环境
+# iqian前端开发环境
 
 前端gulp构建的开源前端开发环境 主要对js合并和压缩、image图片压缩、html代码压缩
 
@@ -6,13 +6,13 @@ js如果不需要压缩的文件,可以放入js/libs
 
 注意:使用本demo 确认已安装node
 
-node-v 查看版本
+### node-v 查看版本
 
 ><link rel="stylesheet" type="text/css" href="css/css.css"/>
 ><script src="js/libs/jquery.js"></script>
 ><script src="js/all.min.js"></script>
 
-# gulp 自动化发布工具
+## gulp 自动化发布工具
 
 gulpfile.js
 
