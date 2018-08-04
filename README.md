@@ -12,6 +12,8 @@ js如果不需要压缩的文件,可以放入js/libs
 
 ### gulp watch 开启监听，修改scss、js、html文件自动执行
 
+### gulp html 静态页面修改
+
 ><link rel="stylesheet" type="text/css" href="css/css.css"/>
 >
 ><script src="js/libs/jquery.js"></script>
